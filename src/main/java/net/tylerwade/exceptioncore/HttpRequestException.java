@@ -33,4 +33,31 @@ public class HttpRequestException extends RuntimeException {
         super(message);
         this.httpStatus = HttpStatus.INTERNAL_SERVER_ERROR; // Default to 500 if not specified
     }
+
+    // Factory methods for common HTTP status exceptions
+
+    public static HttpRequestException notFound(String message) {
+        return new HttpRequestException(message, HttpStatus.NOT_FOUND);
+    }
+
+    public static HttpRequestException badRequest(String message) {
+        return new HttpRequestException(message, HttpStatus.BAD_REQUEST);
+    }
+
+    public static HttpRequestException internalServerError(String message) {
+        return new HttpRequestException(message, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    public static HttpRequestException unauthorized(String message) {
+        return new HttpRequestException(message, HttpStatus.UNAUTHORIZED);
+    }
+
+    public static HttpRequestException forbidden(String message) {
+        return new HttpRequestException(message, HttpStatus.FORBIDDEN);
+    }
+
+    public static HttpRequestException conflict(String message) {
+        return new HttpRequestException(message, HttpStatus.CONFLICT);
+    }
+
 }
